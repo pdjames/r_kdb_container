@@ -1,6 +1,6 @@
 FROM rocker/shiny-verse:3.6.2
 
-RUN /bin/sh -c apt-get update -y
+RUN /bin/sh -c apt-get update
 RUN /bin/sh -c apt-get upgrade cpp gcc g++ libc6 manpages-dev gfortran libc-dev-bin libc6-dev build-essential -y
 RUN /bin/sh -c apt-get install cmake automake libtool apt-utils pkg-config -y
 RUN /bin/sh -c apt-get install libcurl4-openssl-dev -y
