@@ -21,6 +21,6 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file r-base.Dockerfile --tag r-w-kdb-image:$(date +%s) --tag r-w-kdb-image:latest
+      run: docker build . --file r-base.Dockerfile --tag ${{secrets.DOCKER_USER}}/r-w-kdb-image:$(date +%s) --tag ${{secrets.DOCKER_USER}}/r-w-kdb-image:latest
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/gh_r_packs
+      run: docker push --all-tags ${{secrets.DOCKER_USER}}/r-w-kdb-image
