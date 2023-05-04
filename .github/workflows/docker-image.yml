@@ -41,3 +41,21 @@ jobs:
       run: docker build . --file r-base-simple.Dockerfile --tag ${{secrets.DOCKER_USER}}/r-w-kdb-image-simple:$(date +%s) --tag ${{secrets.DOCKER_USER}}/r-w-kdb-image-simple:latest
     - name: Docker Push
       run: docker push --all-tags ${{secrets.DOCKER_USER}}/r-w-kdb-image-simple
+
+
+  build3:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: docker login
+      env: 
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build the Docker image
+      run: docker build . --file r-base-4.0.Dockerfile --tag ${{secrets.DOCKER_USER}}/r-w-kdb-image-latest:$(date +%s) --tag ${{secrets.DOCKER_USER}}/r-w-kdb-image-latest:latest
+    - name: Docker Push
+      run: docker push --all-tags ${{secrets.DOCKER_USER}}/r-w-kdb-image-latest
