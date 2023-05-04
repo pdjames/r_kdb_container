@@ -18,7 +18,7 @@ RUN mkdir /inst
 
 WORKDIR /inst
 COPY install.sh .
-RUN chmod +x install.sh
+RUN chmod +x install2.sh
 COPY reqs.txt .
 RUN sed -n '1,422p; 423q' /inst/reqs.txt | ./install.sh
 RUN R -e "install.packages('devtools')"
