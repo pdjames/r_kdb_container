@@ -13,6 +13,7 @@ RUN apt-get install libsodium-dev libudunits2-dev -y
 RUN apt-get install libssl-dev libpq-dev libmariadb-dev unixodbc-dev -y
 RUN apt-get install libpoppler-cpp-dev -y
 RUN apt-get install libzmq3-dev -y
+ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt-get install mailutils -y
 RUN mkdir /inst
 
