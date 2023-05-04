@@ -21,7 +21,7 @@ WORKDIR /inst
 COPY install2.sh .
 RUN chmod +x install2.sh
 COPY reqs.txt .
-RUN sed -n '1,422p; 423q' /inst/reqs.txt | ./install.sh
+RUN sed -n '1,422p; 423q' /inst/reqs.txt | ./install2.sh
 RUN R -e "install.packages('devtools')"
 RUN apt-get install curl -y
 RUN R -e "devtools::install_github('kxsystems/rkdb', INSTALL_opts=c('--no-multiarch', '--no-test-load'))"
