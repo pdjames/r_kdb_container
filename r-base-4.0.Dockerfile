@@ -18,7 +18,7 @@ RUN apt-get install mailutils -y
 RUN mkdir /inst
 
 WORKDIR /inst
-COPY install.sh .
+COPY install2.sh .
 RUN chmod +x install2.sh
 COPY reqs.txt .
 RUN sed -n '1,422p; 423q' /inst/reqs.txt | ./install.sh
